@@ -42,6 +42,8 @@ If you don't specify any component names, you'll be prompted to select which com
 - 📋 Features based structure
 - 📝 Generators for components, screens, and more
 - 🚀 New Architecture enabled
+- 🌙 Dark/Light theme support
+- 🌐 Internationalization support
 - 🔥 Edge to Edge enabled
 - 📱 Runs on iOS, Android, and Web
 

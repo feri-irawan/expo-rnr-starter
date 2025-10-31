@@ -1,0 +1,13 @@
+import { create } from 'zustand';
+
+type {{pascalCase name}}State = {
+  data: unknown;
+  setData: (data: unknown) => void;
+}
+
+const use{{pascalCase name}}Store = create<{{pascalCase name}}State>((set) => ({
+  data: null,
+  setData: (data) => set({ data }),
+}));
+
+export default use{{pascalCase name}}Store;

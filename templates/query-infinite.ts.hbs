@@ -1,0 +1,15 @@
+import { getNextPageParam } from '@/common/api/utils';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { {{camelCase name}}Service } from '../api/services/{{kebabCase name}}.service';
+import { {{pascalCase name}}Request } from '../api/contracts/{{kebabCase name}}.contract';
+
+const use{{pascalCase name}}InfiniteQuery = (params: {{pascalCase name}}Request) => {
+  return useInfiniteQuery({
+    queryKey: ["{{camelCase feature}}", "{{camelCase name}}" params],
+    queryFn: async ({ pageParam }) => {{camelCase name}}Service({ page: pageParam, ...params }),
+    initialPageParam: 1,
+    getNextPageParam,
+  });
+}
+
+export default use{{pascalCase name}}InfiniteQuery;

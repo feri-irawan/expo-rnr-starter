@@ -8,7 +8,8 @@
     "ios": "expo start -c --ios",
     "web": "expo start -c --web",
     "clean": "rm -rf .expo node_modules",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "plop": "plop"
   },
   "dependencies": {
     "@react-navigation/native": "^7.0.0",
@@ -42,6 +43,7 @@
     "@types/react": "~19.1.10",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~10.0.0",
+    "plop": "^4.0.4",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "typescript": "~5.9.2"

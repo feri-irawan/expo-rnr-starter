@@ -1,0 +1,12 @@
+import { delay } from '@/common/api/utils';
+import { {{pascalCase name}}Request, {{pascalCase name}}Response } from '../contracts/{{kebabCase name}}.contract';
+
+export const {{camelCase name}}ServiceMock = async (data: {{pascalCase name}}Request): Promise<{{pascalCase name}}Response> => {
+  await delay(1000);
+  return {
+    statusCode: 200,
+    message: 'Success',
+    data: null,
+    meta: null,
+  };
+};

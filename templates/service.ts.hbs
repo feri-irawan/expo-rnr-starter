@@ -1,0 +1,19 @@
+import api from '@/common/api';
+import { extractErrorMessage } from '@/common/api/utils';
+import {
+  {{pascalCase name}}Request,
+  {{camelCase name}}RequestContract,
+  {{camelCase name}}ResponseContract,
+} from '../contracts/{{kebabCase name}}.contract';
+
+export const {{camelCase name}}Service = async (data: {{pascalCase name}}Request) => {
+  try {
+    const parsed = {{camelCase name}}RequestContract.parse(data);
+    const res = await api.post('/v1/{{kebabCase name}}', parsed);
+
+    return {{camelCase name}}ResponseContract.parse(res.data);
+  } catch (error) {
+    console.log('In - {{camelCase name}} - error:', error);
+    throw extractErrorMessage(error);
+  }
+};

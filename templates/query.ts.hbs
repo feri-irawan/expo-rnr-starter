@@ -1,0 +1,12 @@
+import { useQuery } from '@tanstack/react-query';
+import { {{camelCase name}}Service } from '../api/services/{{kebabCase name}}.service';
+import { {{pascalCase name}}Request } from '../api/contracts/{{kebabCase name}}.contract';
+
+const use{{pascalCase name}}Query = (params: {{pascalCase name}}Request) => {
+  return useQuery({
+    queryKey: ["{{camelCase feature}}", "{{camelCase name}}" params],
+    queryFn: async () => {{camelCase name}}Service(params)
+  });
+}
+
+export default use{{pascalCase name}}Query;

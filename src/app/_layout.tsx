@@ -1,13 +1,13 @@
 import '@/common/styles/global.css';
 
+import { QueryProvider } from '@/common/contexts/Query';
+import { I18nInitializer } from '@/common/i18n';
 import { NAV_THEME } from '@/common/lib/theme';
 import { ThemeProvider } from '@react-navigation/native';
 import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
-import { QueryProvider } from '@/common/contexts/Query';
-import { I18nInitializer } from '@/common/i18n';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 export {

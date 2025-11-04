@@ -1,6 +1,6 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { useRefetchOnAppFocus } from '@/common/hooks/useRefecthOnAppFocus';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import React, { FC, PropsWithChildren } from 'react';
 
 const queryClient = new QueryClient();
 

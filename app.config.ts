@@ -1,31 +1,40 @@
 import { ExpoConfig, ConfigContext } from 'expo/config';
 import dotenv from 'dotenv';
-
 dotenv.config({ path: ['.env.local', '.env'] });
+
+// ======================================================
+
+const appName = 'Expo RNR Starter';
+const appVersion = '1.0.0';
+const identifier = 'com.expo-rnr-starter';
+const slug = 'expo-rnr-starter';
+const scheme = 'expo-rnr-starter';
+
+// ======================================================
 
 const IS_DEV = process.env.APP_VARIANT === 'development';
 const IS_PREVIEW = process.env.APP_VARIANT === 'preview';
 
 const getUniqueIdentifier = () => {
-  if (IS_DEV) return 'com.expo-rnr-starter.dev';
-  if (IS_PREVIEW) return 'com.expo-rnr-starter.preview';
-  return 'com.expo-rnr-starter';
+  if (IS_DEV) return `${identifier}.dev`;
+  if (IS_PREVIEW) return `${identifier}.preview`;
+  return identifier;
 };
 
 const getAppName = () => {
-  if (IS_DEV) return 'expo-rnr-starter (Dev)';
-  if (IS_PREVIEW) return 'expo-rnr-starter (Preview)';
-  return 'expo-rnr-starter';
+  if (IS_DEV) return `${appName} (Dev)`;
+  if (IS_PREVIEW) return `${appName} (Preview)`;
+  return appName;
 };
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: getAppName(),
-  slug: 'expo-rnr-starter',
-  version: '1.0.0',
+  slug: slug,
+  version: appVersion,
   orientation: 'portrait',
   icon: './src/assets/images/icon.png',
-  scheme: 'expo-rnr-starter',
+  scheme: scheme,
   userInterfaceStyle: 'automatic',
   newArchEnabled: true,
   splash: {

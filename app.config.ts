@@ -27,6 +27,12 @@ const getAppName = () => {
   return appName;
 };
 
+const getScheme = () => {
+  if (IS_DEV) return `${scheme}-dev`;
+  if (IS_PREVIEW) return `${scheme}-preview`;
+  return scheme;
+};
+
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: getAppName(),
@@ -34,21 +40,15 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   version: appVersion,
   orientation: 'portrait',
   icon: './src/assets/images/icon.png',
-  scheme: scheme,
+  scheme: getScheme(),
   userInterfaceStyle: 'automatic',
-  newArchEnabled: true,
-  splash: {
-    image: './src/assets/images/splash.png',
-    resizeMode: 'contain',
-    backgroundColor: '#ffffff',
-  },
+
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
     bundleIdentifier: getUniqueIdentifier(),
   },
   android: {
-    edgeToEdgeEnabled: true,
     adaptiveIcon: {
       foregroundImage: './src/assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
@@ -60,8 +60,20 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     output: 'static',
     favicon: './src/assets/images/favicon.png',
   },
-  plugins: ['expo-router'],
+  plugins: [
+    'expo-router',
+    [
+      'expo-splash-screen',
+      {
+        image: './src/assets/images/splash.png',
+        resizeMode: 'contain',
+        backgroundColor: '#ffffff',
+      },
+    ],
+    'expo-status-bar',
+  ],
   experiments: {
     typedRoutes: true,
+    reactCompiler: true,
   },
 });

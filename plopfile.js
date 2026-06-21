@@ -1,6 +1,16 @@
 import fs from 'fs';
 
-const features = fs.readdirSync('src/features');
+const featuresDir = 'src/features';
+let features = [];
+
+try {
+  if (!fs.existsSync(featuresDir)) {
+    fs.mkdirSync(featuresDir, { recursive: true });
+  }
+  features = fs.readdirSync(featuresDir);
+} catch (_error) {
+  features = [];
+}
 
 const featurePrompt = [
   {
@@ -8,12 +18,13 @@ const featurePrompt = [
     name: 'isExistFeature',
     message: 'Want to create in existing feature?',
     default: true,
+    when: () => features && features.length > 0,
   },
   {
     type: 'input',
     name: 'feature',
     message: 'Please enter feature name:',
-    when: (answers) => answers.isExistFeature === false,
+    when: (answers) => answers.isExistFeature === false || answers.isExistFeature === undefined,
   },
   {
     type: 'list',
